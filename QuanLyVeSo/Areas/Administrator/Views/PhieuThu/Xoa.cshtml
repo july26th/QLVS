@@ -1,0 +1,54 @@
+﻿@model QuanLyVeSo.Areas.Administrator.Models.PhieuThu
+
+@{
+    ViewBag.Title = "Xoa";
+    Layout = "~/Areas/Administrator/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Xác nhận Xóa</h2>
+
+<h3>Bạn chắc chắn muốn Xóa thông tin này chứ?</h3>
+<div style="font-size:16px;word-wrap: break-word;">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaPhieuThu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaPhieuThu)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DaiLy.TenDaiLy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DaiLy.TenDaiLy)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayNop)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayNop)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SoTienNop)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoTienNop)
+        </dd>
+    </dl>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" style="background-color:red;" value="Xóa" class="btn btn-default" /> |
+        @Html.ActionLink("Trở lại Trang Quản lý Phiếu thu", "Index")
+    </div>
+
+}

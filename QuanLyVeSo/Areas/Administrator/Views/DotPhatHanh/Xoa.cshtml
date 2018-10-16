@@ -1,0 +1,89 @@
+﻿@model QuanLyVeSo.Areas.Administrator.Models.PhatHanh
+
+@{
+    ViewBag.Title = "Xoa";
+    Layout = "~/Areas/Administrator/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Xác nhận Xóa</h2>
+
+<h3>Bạn chắc chắn muốn Xóa thông tin này chứ?</h3>
+<div style="font-size:16px;word-wrap: break-word;">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DaiLy.TenDaiLy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DaiLy.TenDaiLy)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LoaiVeso.MaLoaiVeSo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiVeso.MaLoaiVeSo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SoLuong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuong)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayNhan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayNhan)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SLBan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SLBan)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DoanhThuDPH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DoanhThuDPH)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HoaHong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoaHong)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TienThanhToan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TienThanhToan)
+        </dd>
+    </dl>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" style="background-color:red;" value="Xóa" class="btn btn-default" /> |
+        @Html.ActionLink("Trở lại Trang Quản lý Đợt Phát Hành", "Index")
+    </div>
+
+}

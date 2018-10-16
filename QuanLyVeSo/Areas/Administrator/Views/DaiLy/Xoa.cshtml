@@ -1,0 +1,54 @@
+﻿@model QuanLyVeSo.Areas.Administrator.Models.DaiLy
+
+@{
+    ViewBag.Title = "Xoa";
+    Layout = "~/Areas/Administrator/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Xác nhận Xóa</h2>
+
+<h3>Bạn chắc chắn muốn Xóa loại vé số này chứ ?</h3>
+<div style="font-size:16px;word-wrap: break-word;">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaDaiLy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaDaiLy)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TenDaiLy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenDaiLy)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaChi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+    </dl>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" style="background-color:red;" value="Xóa" class="btn btn-default" /> |
+        @Html.ActionLink("Trở lại Trang Quản lý đại lý", "Index")
+    </div>
+
+}

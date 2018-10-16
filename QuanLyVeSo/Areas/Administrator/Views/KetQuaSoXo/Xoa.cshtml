@@ -1,0 +1,62 @@
+﻿@model QuanLyVeSo.Areas.Administrator.Models.KetQuaSoXo
+
+@{
+    ViewBag.Title = "Xoa";
+    Layout = "~/Areas/Administrator/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Xác nhận Xóa</h2>
+
+<h3>Bạn chắc chắn muốn Xóa thông tin này chứ?</h3>
+<div style="font-size:16px;word-wrap: break-word;">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LoaiVeso.MaLoaiVeSo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiVeso.MaLoaiVeSo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Giai.TenGiai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Giai.TenGiai)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NgaySo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgaySo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SoTrung)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoTrung)
+        </dd>
+        
+    </dl>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" style="background-color:red;" value="Xóa" class="btn btn-default" /> |
+        @Html.ActionLink("Trở lại Trang Quản lý KQXS", "Index")
+    </div>
+
+}

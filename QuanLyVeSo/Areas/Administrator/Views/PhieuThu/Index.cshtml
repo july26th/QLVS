@@ -1,0 +1,67 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.PagedList<QuanLyVeSo.Areas.Administrator.Models.PhieuThu>
+<link href="~/Areas/Administrator/Content/TrangChuCss.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Administrator/Views/Shared/_Layout.cshtml";
+}
+
+<p>
+    @Html.ActionLink("Thêm phiếu thu cho đại lý", "ThemMoi")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().MaPhieuThu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().DaiLy.TenDaiLy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().NgayNop)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().SoTienNop)
+        </th>
+        <th>
+            Sửa
+        </th>
+        <th>
+            Xóa
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaPhieuThu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DaiLy.TenDaiLy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayNop)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoTienNop)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "ChinhSua", new { @_MaPhieuThu = item.MaPhieuThu })
+            </td>
+            <td>
+                @Html.ActionLink("Xóa", "Xoa", new { @_MaPhieuThu = item.MaPhieuThu })
+            </td>
+        </tr>
+    }
+
+</table>
+<div id="divBody">
+    <br />
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+</div>
+<div id="divBody" class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("Index", "PhieuThu", new { _Page = page }))
+</div>

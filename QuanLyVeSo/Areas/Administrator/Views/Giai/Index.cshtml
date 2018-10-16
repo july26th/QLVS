@@ -1,0 +1,61 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.PagedList<QuanLyVeSo.Areas.Administrator.Models.Giai>
+<link href="~/Areas/Administrator/Content/TrangChuCss.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Administrator/Views/Shared/_Layout.cshtml";
+}
+
+<p>
+    @Html.ActionLink("Thêm mới giải thưởng", "ThemMoi")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().MaGiai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().TenGiai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().SoTienNhan)
+        </th>
+        <th>
+            Sửa
+        </th>
+        <th>
+            Xóa
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaGiai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenGiai)
+            </td>
+            <td>
+                @string.Format("{0:0,0}", item.SoTienNhan) vnđ
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "ChinhSua", new { @_MaGiai = item.MaGiai })
+            </td>
+            <td>
+                @Html.ActionLink("Xóa", "Xoa", new { @_MaGiai = item.MaGiai })
+            </td>
+        </tr>
+    }
+
+</table>
+<div id="divBody">
+    <br />
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+</div>
+<div id="divBody" class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("Index", "Giai", new { _Page = page }))
+</div>

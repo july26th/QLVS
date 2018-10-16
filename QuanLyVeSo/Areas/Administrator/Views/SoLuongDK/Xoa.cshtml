@@ -1,0 +1,47 @@
+﻿@model QuanLyVeSo.Areas.Administrator.Models.SoLuongDK
+
+@{
+    ViewBag.Title = "Xoa";
+    Layout = "~/Areas/Administrator/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Xác nhận Xóa</h2>
+
+<h3>Bạn chắc chắn muốn Xóa thông tin này chứ?</h3>
+<div style="font-size:16px;word-wrap: break-word;">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DaiLy.TenDaiLy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DaiLy.TenDaiLy)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayDK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayDK)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SLDK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SLDK)
+        </dd>
+    </dl>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" style="background-color:red;" value="Xóa" class="btn btn-default" /> |
+        @Html.ActionLink("Trở lại Trang Quản lý SLĐK", "Index")
+    </div>
+
+}
